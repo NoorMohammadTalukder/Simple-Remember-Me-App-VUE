@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE Remember Me App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <section id="remember-me" class="remember">
+        <div class="remember">
+            <h1>VUE Simple Remember Me App</h1>
+            <div class="inputs">
+                <input v-model="title" class="input" type="text" placeholder="enter title">
+                <textarea v-model="descrition"  class="input"  type="text"  rows="4" cols="50" placeholder="enter description"></textarea>
+                <input  v-model="dateTime"  class="input" type="datetime-local" >
+                <button @click="setRemember()">Set</button>
+
+                <div class="lists">
+                    <h4 v-if="rememberLists.length===0">No Remember List available</h4>
+                    <ul v-else>
+                        <li v-for="(x,index) in rememberLists" :key="x">
+                            {{x}}<br>
+                            <button @click="remove(index)">Remove</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>
